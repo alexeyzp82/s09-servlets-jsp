@@ -20,7 +20,7 @@
 
 <form method="post">
     <div>
-        <label for="id">Name: </label>
+        <label for="id">Id: </label>
         <input name="id" id="id" value="<%=task.getId()%>" disabled>
     </div>
     <div>
@@ -32,8 +32,9 @@
         <select name="priority" id="priority">
             <%
                 for (Priority priority : Priority.values()) {
+                    String add = priority == task.getPriority() ? " selected" : "";
             %>
-            <option name=<%=priority.name()%>><%=priority.info()%>
+            <option name=<%=(priority.name() + add)%>><%=priority.info()%>
             </option>
             <%
                 }
