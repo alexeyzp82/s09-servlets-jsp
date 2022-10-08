@@ -13,13 +13,13 @@
 <body>
 <%@include file="header.html" %>
 <h2>List of Tasks</h2>
+
 <table>
     <tr>
         <th>No.</th>
         <th>Name</th>
         <th colspan="3">Priority</th>
     </tr>
-
     <%
         for (Task task : (List<Task>) request.getAttribute("tasks")) {
     %>
@@ -44,5 +44,6 @@
         }
     %>
 </table>
+
 </body>
 </html>
