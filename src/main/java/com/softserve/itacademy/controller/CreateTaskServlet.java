@@ -26,7 +26,6 @@ public class CreateTaskServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
         String title = request.getParameter("priority");
         Priority priority = Priority.LOW;
         Task task = new Task(title, priority);

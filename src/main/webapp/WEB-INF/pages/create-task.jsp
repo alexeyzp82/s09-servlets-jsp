@@ -12,6 +12,7 @@
 </head>
 <body>
     <%@include file="header.html"%>
+    <h2>Create new Task</h2>
 
 
 

@@ -12,13 +12,14 @@
 <body>
 
 <%@include file="header.html" %>
+<h2>Read existing Task</h2>
 
 <%
     Task task = (Task) request.getAttribute("task");
 %>
-<p>Id: <%= task.getId() %></p>
-<p>Title: <%= task.getTitle() %></p>
-<p>Priority: <%= task.getPriority().info() %></p>
+<p>Id: <%=task.getId()%></p>
+<p>Title: <%=task.getTitle()%></p>
+<p>Priority: <%=task.getPriority().info()%></p>
 
 <table>
 </table>
