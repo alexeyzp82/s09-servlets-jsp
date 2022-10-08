@@ -11,8 +11,9 @@
 
 </head>
 <body>
-    <%@include file="header.html"%>
-
+<%@include file="header.html" %>
+<h2>List of Tasks</h2>
+<table>
     <tr>
         <th>No.</th>
         <th>Name</th>
@@ -22,23 +23,26 @@
     <%
         for (Task task : (List<Task>) request.getAttribute("tasks")) {
     %>
-    <tr>
-        <td><%=task.getId()%></td>
-        <td><%=task.getTitle()%></td>
-        <td>
-            <a href="read-task.jsp?id= <%=task.getId()%>">Read</a>
-        </td>
-        <td>
-            <a href="update-task.jsp?id= <%=task.getId()%>">Edit</a>
-        </td>
-        <td>
-            <a href="delete-task.jsp?id= <%=task.getId()%>">Delete</a>
-        </td>
-    </tr>
-
+    <div>
+        <tr>
+            <td><%=task.getId()%>
+            </td>
+            <td><%=task.getTitle()%>
+            </td>
+            <td>
+                <a href="read-task.jsp?id= <%=task.getId()%>">Read</a>
+            </td>
+            <td>
+                <a href="update-task.jsp?id= <%=task.getId()%>">Edit</a>
+            </td>
+            <td>
+                <a href="delete-task.jsp?id= <%=task.getId()%>">Delete</a>
+            </td>
+        </tr>
+    </div>
     <%
         }
     %>
-
+</table>
 </body>
 </html>
