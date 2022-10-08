@@ -26,7 +26,4 @@ public class TasksListServlet extends HttpServlet {
         requestDispatcher.forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-
-    }
 }

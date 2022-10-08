@@ -10,13 +10,11 @@
 
 </head>
 <body>
-<p>id: <%= request.getAttribute("task") %>
-</p>
+
 <%@include file="header.html" %>
 
 <%
     Task task = (Task) request.getAttribute("task");
-
 %>
 <p>Id: <%= task.getId() %></p>
 <p>Title: <%= task.getTitle() %></p>
