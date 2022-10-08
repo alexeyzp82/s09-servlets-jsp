@@ -28,7 +28,7 @@ public class CreateTaskServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String title = request.getParameter("title");
-        Priority priority = Priority.LOW;
+        Priority priority = Priority.valueOf(request.getParameter("priority").toUpperCase());
         Task task = new Task(title, priority);
         taskRepository.create(task);
         response.sendRedirect("/tasks-list");
