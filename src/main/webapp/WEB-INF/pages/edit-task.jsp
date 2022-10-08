@@ -34,7 +34,7 @@
                 for (Priority priority : Priority.values()) {
                     String add = priority == task.getPriority() ? " selected" : "";
             %>
-            <option name=<%=(priority.name() + add)%>><%=priority.info()%>
+            <option name=<%=(priority.name())%> <%=add%>><%=priority.info()%>
             </option>
             <%
                 }
