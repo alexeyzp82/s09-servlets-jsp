@@ -13,7 +13,32 @@
 <body>
     <%@include file="header.html"%>
 
+    <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th colspan="3">Priority</th>
+    </tr>
 
+    <%
+        for (Task task : (List<Task>) request.getAttribute("tasks")) {
+    %>
+    <tr>
+        <td><%=task.getId()%></td>
+        <td><%=task.getTitle()%></td>
+        <td>
+            <a href="read-task.jsp?id= <%=task.getId()%>">Read</a>
+        </td>
+        <td>
+            <a href="update-task.jsp?id= <%=task.getId()%>">Edit</a>
+        </td>
+        <td>
+            <a href="delete-task.jsp?id= <%=task.getId()%>">Delete</a>
+        </td>
+    </tr>
+
+    <%
+        }
+    %>
 
 </body>
 </html>

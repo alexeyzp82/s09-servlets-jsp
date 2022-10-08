@@ -7,24 +7,24 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class TaskRepository {
-    private final List<Task> todo;
+    private final List<Task> tasks;
 
     private TaskRepository() {
-        todo = new LinkedList<>();
-        todo.add(new Task("Task #1", Priority.MEDIUM));
-        todo.add(new Task("Task #2", Priority.LOW));
+        tasks = new LinkedList<>();
+        tasks.add(new Task("Task #1", Priority.MEDIUM));
+        tasks.add(new Task("Task #2", Priority.LOW));
     }
 
     public boolean create(Task task) {
-        boolean status = todo.stream().anyMatch(t -> t.getTitle().equals(task.getTitle()));
+        boolean status = tasks.stream().anyMatch(t -> t.getTitle().equals(task.getTitle()));
         if (!status) {
-            return todo.add(task);
+            return tasks.add(task);
         }
         return false;
     }
 
     public Task read(int id) {
-        return todo.stream().filter(task -> task.getId() == id).findFirst().orElse(null);
+        return tasks.stream().filter(task -> task.getId() == id).findFirst().orElse(null);
     }
 
     public boolean update(Task newTask) {
@@ -34,7 +34,7 @@ public class TaskRepository {
                     .filter(task -> task.getId() != oldTask.getId())
                     .anyMatch(task -> task.getTitle().equals(newTask.getTitle()));
             if (!status) {
-                return todo.set(todo.indexOf(oldTask), newTask) != null;
+                return tasks.set(tasks.indexOf(oldTask), newTask) != null;
             }
             return false;
         }
@@ -44,17 +44,17 @@ public class TaskRepository {
     public boolean delete(int id) {
         Task task = read(id);
         if (task != null) {
-            return todo.remove(task);
+            return tasks.remove(task);
         }
         return false;
     }
 
     public List<Task> all() {
-        return todo;
+        return tasks;
     }
 
     public void deleteAll() {
-        todo.clear();
+        tasks.clear();
     }
 
     private static TaskRepository taskRepository = null;
