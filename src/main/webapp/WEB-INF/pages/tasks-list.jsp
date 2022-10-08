@@ -18,7 +18,8 @@
     <tr>
         <th>No.</th>
         <th>Name</th>
-        <th colspan="3">Priority</th>
+        <th>Priority</th>
+        <th colspan="3">Operation</th>
     </tr>
     <%
         for (Task task : (List<Task>) request.getAttribute("tasks")) {
@@ -28,6 +29,8 @@
             <td><%=task.getId()%>
             </td>
             <td><%=task.getTitle()%>
+            </td>
+            <td><%=task.getPriority().info()%>
             </td>
             <td>
                 <a href="/read-task?id=<%=task.getId()%>">Read</a>
