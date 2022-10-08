@@ -16,7 +16,6 @@
 </head>
 <body>
     <%@include file="header.html"%>
-    <h2>Task with ID '<%=request.getParameter("id")%>' not found</h2>
-    <h3>url: <%=request.getRequestURL().substring(35, request.getRequestURL().length() - 4)%></h3>
+    <h2>Task with ID '<%=request.getParameter("id")%>' not found in To-Do List!</h2>
 </body>
 </html>
