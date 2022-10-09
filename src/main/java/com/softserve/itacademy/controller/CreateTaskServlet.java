@@ -30,6 +30,13 @@ public class CreateTaskServlet extends HttpServlet {
         String title = request.getParameter("title");
         Priority priority = Priority.valueOf(request.getParameter("priority").toUpperCase());
         Task task = new Task(title, priority);
+        for (Task t : taskRepository.all()) {
+            if(task.getTitle().equals(t.getTitle()) ) {
+                request.setAttribute("pageURL", "/create-task");
+                response.sendError(404);
+                return;
+            }
+        }
         taskRepository.create(task);
         response.sendRedirect("/tasks-list");
     }
