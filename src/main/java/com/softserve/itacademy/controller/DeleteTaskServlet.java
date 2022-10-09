@@ -23,6 +23,7 @@ public class DeleteTaskServlet extends HttpServlet {
         if(taskRepository.delete(Integer.parseInt(request.getParameter("id")))) {
             response.sendRedirect("/tasks-list");
         } else {
+            request.setAttribute("pageURL", "/delete-task");
             response.sendError(404);
         }
     }

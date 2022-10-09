@@ -17,5 +17,6 @@
 <body>
     <%@include file="header.html"%>
     <h2>Task with ID '<%=request.getParameter("id")%>' not found in To-Do List!</h2>
+    <h3>url: <%=request.getAttribute("pageURL")%></h3>
 </body>
 </html>
